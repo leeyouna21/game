@@ -1,0 +1,68 @@
+@mixin center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.tetris__wrap {
+    @include center;
+    background: #c7c7c7;
+    width: 400px;
+    height: 700px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    background-image: url(../../src/images/mario.jfif);
+    background-size: cover; /* 이미지를 컨테이너에 맞게 조정 */
+}
+
+.tetris__play {
+    .view {
+        > ul {
+            border: 2px solid #699cf8;
+            margin: 50px auto;
+            width: 300px;
+            > li {
+                width: 100%;
+                height: 25px;
+                > ul {
+                    display: flex;
+                    > li {
+                        width: 25px;
+                        height: 25px;
+                        outline: 0.25px solid #699cf8;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.23); /* 그림자 효과 설정 */
+                    }
+                }
+            }
+        }
+    }
+    .Tmino {
+        /* border: 6px outset #A042A2 !important; */
+        background-color: #952d98;
+    }
+    .Imino {
+        /* border: 6px outset #1AA9DE !important; */
+        background-color: #009fda;
+    }
+    .Omino {
+        /* border: 6px outset #FED01A !important; */
+        background-color: #fecb00;
+    }
+    .Zmino {
+        /* border: 6px outset #EF3E4D !important; */
+        background-color: #ed2939;
+    }
+    .Smino {
+        /* border: 6px outset #78C53E !important; */
+        background-color: #69be28;
+    }
+    .Jmino {
+        /* border: 6px outset #1A74C4 !important; */
+        background-color: #0065bd;
+    }
+    .Lmino {
+        /* border: 6px outset #FF861A !important; */
+        background-color: #ff7900;
+    }
+}
