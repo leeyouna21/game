@@ -7,20 +7,110 @@
 .tetris__wrap {
     @include center;
     background: #c7c7c7;
-    width: 400px;
+    width: 800px;
     height: 700px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #fdf7df7c;
     backdrop-filter: blur(10px);
     border-radius: 30px;
-    background-image: url(../../src/images/mario.jfif);
+    // background-image: url(../../src/images/mario.jfif);
     background-size: cover; /* 이미지를 컨테이너에 맞게 조정 */
 }
-
+.tetris__dot {
+    width: 800px;
+    height: 50px;
+    background-color: #fdf7df;
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    position: relative;
+}
+.tetris__dot .dot1 {
+    width: 16px;
+    height: 16px;
+    background-color: #ff5f58;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.tetris__dot .dot1:hover {
+    background-color: #fd443a;
+    background-image: url(../images/x.png);
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.tetris__dot .dot2 {
+    width: 16px;
+    height: 16px;
+    background-color: #febc2e;
+    border-radius: 50%;
+    position: absolute;
+    left: 45px;
+    top: 20px;
+}
+.tetris__dot .dot2:hover {
+    background-color: #f7a800;
+    background-image: url(../images/h.png);
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.tetris__dot .dot3 {
+    width: 16px;
+    height: 16px;
+    background-color: #24c83e;
+    border-radius: 50%;
+    position: absolute;
+    left: 70px;
+    top: 20px;
+}
+.tetris__dot .dot3:hover {
+    background-color: #009b1a;
+    background-image: url(../images/try.png);
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.tetris__info {
+    width: 300px;
+    height: 500px;
+    background-color: #ccc;
+    align-items: center;
+    position: absolute;
+    right: 50px;
+    top: 120px;
+}
+.tetris__info .tetris__user {
+    width: 300px;
+    height: 250px;
+    background-color: #ffd9c2;
+}
+.tetris__info .tetris__user h1 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 50px;
+    color: #ff948f;
+}
+.tetris__info .tetris__user p {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 30px;
+}
+.tetris__info .tetris__ex {
+    width: 300px;
+    height: 250px;
+    background-image: url(https://i.pinimg.com/originals/a6/a4/91/a6a4914adf555d8bc68786881e7f9174.gif);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .tetris__play {
     .view {
         > ul {
-            border: 2px solid #699cf8;
-            margin: 50px auto;
+            border: 2px solid #fedd52;
+            margin: 70px 50px;
             width: 300px;
             > li {
                 width: 100%;
@@ -30,8 +120,8 @@
                     > li {
                         width: 25px;
                         height: 25px;
-                        outline: 0.25px solid #699cf8;
-                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.23); /* 그림자 효과 설정 */
+                        outline: 0.25px solid #fedd52;
+                        // box-shadow: 0 0 10px rgba(0, 0, 0, 0.23); /* 그림자 효과 설정 */
                     }
                 }
             }

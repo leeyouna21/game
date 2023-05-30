@@ -1,90 +1,115 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME PROJECT</title>
-  <script type="module" crossorigin src="/assets/index-4dc37984.js"></script>
-  <link rel="stylesheet" href="/assets/index-9a0470a9.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GAME PROJECT</title>
+      <script type="module" crossorigin src="/assets/index-c5c08526.js"></script>
+      <link rel="stylesheet" href="/assets/index-84cc97df.css">
+    </head>
+    <body>
+        <audio id="bgMusic" src="audio/tetris.mp3" loop autoplay></audio>
+
         <div class="cursor">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAABJCAYAAACkYd+RAAAA5ElEQVR4Ae3aWw6CMBBG4cG4TJbHPmt8MaFt0Nr+ZQbOeebShM9JhC5mlmzfYk57WKBCLfb9yNMPx7gIBqpim03ruj9g22rnnBIMVF3LbHHCiYZhoOraZosLTDQMA1X3MltcUGgYBqrubba4wUDDMFCF2cMbdhiGgSrMNi2gwTAMVGG2pyPDMFAVarFPE1cx2NrnNwUDVc0M8sc6c9TJzVbiP5i7RnxamvaaHwaqYs9ZT58/82CgKvy2k16jsrkLA1Xh5qzbHXJ5MFAVbs6qGzZ3YaCKxapisaqYs1/6e9s2DFS9AAJ/OyPJWRqkAAAAAElFTkSuQmCC" alt>
-    </div>
-    <header id="header">
-        <h1>🎮Yuna Game World🎮</h1>
-        <div class="time">2023-04-24 09:37 15s</div>
-    </header >
-
-    <main id="contents">
-        <div class="icon___box">
-            <div class="icon1">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAFXElEQVR4Ae2dP08VQRTFB2NstNDKRuO/xkajpTZooo0WYm8CfgLjJxC/gX4CMbGXRhtNhEYr47+GRoTQAA0U0ECBezbZZN6+3Z2d9/btzuw5v2QTAsuacM+799y5M+uUcXNkmmXKiGA4ZgQ1EgA5EgA5derxgAc4evLEjMPUu3fOW4xoDWUAciQAciQAclBvvfr8cT2AC3mEdlEGIEcCIEcCIGfIA7hqvKtGd+AR5AnGQBmAHAmAHAmAHG8P4Hxgyx6hhicYdz9Drz2GMgA5EgA5EgA5jXsA5z84YY+Qf772L1SjDECOBECOBEBO6x7ARdezBl9i9wjKAORIAORIAOQE5wFc9MAjBOUJlAHIkQDIkQDIic4DuAjdI4TmCZQByJEAyJEAyOmdB3ARmkfo2hMoA5AjAZAjAZBz3JAR+tnHtlEGIEcCIEcCIIfOA7hg8whBZ4CXv3+bt3//GjE5ghbA2t6emfv2zTxeXk6/Fs0ThQdY3NgwTxMhiOYJ0gMg4L92dkyI+HqE0D1BKwLI6vjslSu17t89ODDzSf0Xk6eVErC2v5/W8kuLi2Zpa8uIcGjVA8DI3f30yTz9+lWmLhA68QALq6vpNX/9unl29ao5feKEaQLfUjMJ8jU/dE/QSgaYvXzZzCVXHtT5mx8/Ntbr26XmZ6AmMjRaEcDFU6fMm9u3zb+ZGXPn7NmBn2W9PoJWVhbeT0+biydPmrrgOVg7EG5aLQEQwpf7981C8ol/+efPQMDxNUSATIH7bGbOn0+vMmAsl5NLvsKfTjzAXFKjcaEEvF5ZSdu+DHiDUVDbOBqdrgTCBP548KDQH4h26Hwp2PYH+dSfoVnA5AhmFpD6g3v3Cn+GpWH4A60fNE8wAsAC0bojuPAHdz9/1oi4QVoRAALmCho+2XeS4NrAI+T9gd02lj0TncaNM2eMcBP0LCDzB+k6QM4fZEJIy0Ly/Pzv4XeEmyhmAVgDgEl8c+vWkBBQFvA8MRqdeAAEDdkAW77sNQAXWDuAUVTb2BzRzQLstrFMCMgymgXUI5hZgF3HkfJfJAawzjOLwDNvfvigtrEGrZaAbBZQVMttMB5GBzBbkeoRXFfmsEuNKKYTD4BajmyAT3nRXgAs/LiClnUWA8+tKDVVbSMznc8CZs6dG/p+tifQN2h2qcmvAxSVGtHTcwEQwo+HD52lRgQmgPQTXBC0UWcBdqkRxXR2LgCbQtaTdLx7eDjwfQQNXcCrlZUhHwBTt7S9beavXTM+ZEvKMoPDdHowpGwTR9YFZEGzN4lkZcEGreV0cl2o2DZW1TYyE/Tp4Cxoj5KM8Pz798r0P680PxJRnA2smgUADJiQKbTo409UL4hI9xKWLA6hnGivgD+9ekOIvVdAs4B6BCMALBGP0rMXlQXNAuoTxZ5AgDpfFFC71y/aK6BZQDWdCQCBK5sFlJGdKSwCXUDZXoHIZgFHntdY9OpcgGYB/gRzLsDn7F+dZ2oWUI9evydQswA3QyuBsb3jpg49nwW4fEDl/z8Q7YsiF5KysbS5Wft+zQKKibYEYPCjgI5PNALAxE+mrnlQAiprROIJKmtMmx4Bpg5C0MKOF5Xxi84DqJY3i14XT44EQE6dEhCNRxD+KAOQIwGQIwGQ00QbKI8QMcoA5EgA5EgA5LSxFCyPEDDKAORIAORIAOSEMA6WR+gQZQByJAByJAByYtgSJo/QLAN/T2UAciQAciQAcqI9GmYhj1BN5d9HGYAcCYAcCYCcPngAF2weYcrnZmUAciQAciQAchg8gIvYPYJXzc+jDECOBECOBEDOWPVDpIz9vl5PGo2ZMgA5EgA5EgA5/wFUaoH0njeGpQAAAABJRU5ErkJggg==" alt="뮤직">
-                <span>Music🎵</span>
-            </div>
-            <div class="icon2">
-                <images src="images/game_icon02.png" alt="뮤직">
-                <span>Music🎵</span>
-            </div>
-            <div class="icon3">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAFaUlEQVR4Ae2dP08UURTFH8YYE01EC7XQiFpoo2BlaAQSbWyAysICrCyJnwD4BlJaCYUFlWtjYiQBbNBGARto+BMt0EZMJDFa4N7ZjJmZnZk3b3d25r0555dsYnaXKbjHe86b+97QpfQcqnzpUsQajigCDQUADgUAThY/DmWAycOHqh2mu17ovsKMUCDsAOBQAOBQAOCI3xqt89vNADqYEYqFHQAcCgAcCgCcpgyg83idR5eQEZgJ2oAdABwKABwKABzjDKCj6IyQIRO0u5+h0hmDHQAcCgAcCgCc3DOAjk5nhOj1uX8hHXYAcCgAcCgAcArPADrKnjWY4npGYAcAhwIAhwIAx7oMoKMCGcGqTMAOAA4FAA4FAI5zGUCH7RnBtkzADgAOBQAOBQBO5TKADtsyQtmZgB0AHAoAHAoAnKMKDNvPPhYNOwA4FAA4FAA4cBlAB1pGsLoDLE+vq7W5LUU6h9UC2N85ULXxFTU/+s77N8kfJzLARu2LevVoRZH8sTIDbNa+qr21H8pGTDOC7ZmgEAH4Pt47diXT93/v/1FLU+uKdJ5CLMD38pnLNbW79E0Reyg0A4gQZocWPD9nqLODUjLA6uyW9xqcuqluT1xTx7uPqTwwtZpOEPV82zNBIR1ACtI33lwU8flnt17nttYPWs3eqp0h0jYKEUB3zwk1/LxfTWyPqJ7Bc6HPgkVLsoUHL+9418iKXGd+dFkRPYVagBRxbPGu1/6Xpz/XC/Xr/2dSNBGBdIposa+PXPReSezUg+Xu8vfQ9Ug2SskAUmR5iQV8mNn0ln0+Io5W4LKxNUq9Eygh8PGn+7H5gBRD6beCg/mgu+dk7Hc4C+gc1swC/HwQh8wCJB/w/kH+WCOAufoNov3d9BAn+WBu6C1HxDlSiACkYLqiSYKfG1wIvScZIZoPgsvGpGuOLd5T5/vOKKLH6lmAnw8a9wFOxl5TbOFnxBbk5+RniB4nZgFyD2Bie9gTQ1QIYgs17hVomVIygBRNuoHcDAreA9AhdiBBkcvG/HBuFhBcNiYJQYIiZwHZsGYWELQEafkDkzcyXTMOuZYIi8tGPYVagL/Wj/PyIDIelhVA2lhXiqvrHEGrIfGUkgGkdUuok//lcXsB5MaPrmh+54heN8lq0paNyJQ+C7g+cqHpfX9PoGnRpKv4VnO+73ToszirIRU9FyBWI0MmndUQywTgB7to0VqdBQSthsRT2rmAtXpA2989qLf7v6H3pWhiC++fbjTlAAl1svlDrMOExi3lq95RMxKm1IMhSZs4/FWAX7TgJpG48CdLy0sDZ9WpS8nbxtKWjchYfTrYL9q14QvqzZOPqVu+TLsCaeDE2cC0WYAgttDYY8iEb4pTD4hIWucLYifcK2BOpZ4QwnMB5lgjANnE0cqaPc4WOAvIjhN7AgXx+UZBw0EwuNaP2yvAWUA6pQmgt164pFlAEv6ZwjhkFZC0V8CxWcCh4astKnUuIDh25iwgG9acCzA5+5flmpwFZKPSzwnkLEBP051A155xk4WKzwJ0OSD17w84+6DI4dn+lraYkzDOCuB0ffDTx4K2jTMZQCZ+DHX5Ix0g1SPqmSDVY4rMCBLqRAic6xuRWj/nLIBeni98XDw4FAA4WSzAmYxAzGEHAIcCAIcCACePZSAzgsOwA4BDAYBDAYBTxK1gZgSLYQcAhwIAhwIAx4ZxMDNCibADgEMBgEMBgOPCljBmhHwJ/T7ZAcChAMChAMBx9mRQAGaEdFJ/P+wA4FAA4FAA4FQhA+hAywhdJl9mBwCHAgCHAgAHIQPocD0jGHl+FHYAcCgAcCgAcNryD+LR9vN6Dcm1ZuwA4FAA4FAA4PwDU2iBjD4pIB0AAAAASUVORK5CYII=" alt="뮤직">
-                <span>Music🎵</span>
-            </div>
-            <div class="icon4">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAFGklEQVR4Ae2dPU4cQRCFG8tOnEBA4sSAnJDxkzixBCSO4QTACTgCcAROAJwAYicQOHHCT0Zi8ZM4cYATJw7WvJVGmh1murd3e3u6571PQrLk2QFRb6peV/U0U8ZNz4RlyohkeGMENRIAORIAOcPU4wEP0OttmnGYmjp3XmJENJQByJEAyJEAyEG99Vrnj+sBXMgjxEUZgBwJgBwJgJxXHsBV4101ugWPIE8wBsoA5EgA5EgA5Hh7AOcNI3uEITzBuPsZOu0xlAHIkQDIkQDICe4BnN9wwh6hen/tX7CjDECOBECOBEBOdA/gou1Zgy+5ewRlAHIkAHIkAHKS8wAuOuARkvIEygDkSADkSADkZOcBXKTuEVLzBMoA5EgA5EgA5HTOA7hIzSO07QmUAciRAMiRAMh5a8hI/d3H2CgDkCMBkCMBkEPnAVyweYSkM8Dh4Z05PX0yYnIkLYCHh79mZ+fKbG396P9bhCeLEnB+/ss8P/8zFxdfjAhLkgJAwG9v/5gU8fUIqXuCKAIo6vj29sehrsfTfnBwZ8TkieIBilq+sPDNXF7+NiIdoppACGFj47vZ3b2SqUuEVjzAyclT/+vgYNHs7X0yMzPvTAh8S80kqNb81D1BlAyAgOzsvA4K6vzKykWwtX651NzcpGkiUyOKAObn35vj41Vzf//VrK/PDvxfOWhNZeHs7HP/HsOC+6B3INxE9QAIItbyEEM1oAgaRAB/8Pg4KITNzQ/9zzQBY4muoXyFP63uCUQJODr62V/22XD9TBAAzGUZCAwZp21cHoB6TyBM4PX1Rq0/EHFofRZQ9gdNdV6zgMmRzDCo8Ad1oDVc+AMJISzJCAA1vGr+qqB3gOs0Ig5HFAEgYK6g4cleXx80cvAIVX9QXjY23ROZZHl52gg3Sc8CCn9Q1wco7llXFnAtPiPcZDELQB8AJrGuf4CygPuJ0WjFAyBoyAZo3rh6AGVQDpDetWwMR3azgPKysUkIyDKaBQxH1E4g0j7StcsHIOUvLU2/ZIn3zsmebZcuBLK/v+g1RwiNOoElbLOAMhgPYwVgCz6E5Moc5VIj6mnFA+DJRArH01m3FwCNH1fQilVA9b5Npca2bGSm9VkA0n2VYk+gb9DK/qDaBygEo07iIJ18LwBCwJDJVWpEYgIonuBq0EadBZRLjainNQHAoNX1ARA0PL11QRt1FoBSY1s2MtPahpC6Dl51EweedogE19rANrO1tdn+51MLspaBY2CbBVSpGxwJN1mcD2CbBQDtCRydrA6IaFrnAywbtVfAn06dEKL3AvxJRgBoEY+yZm/aYo4hk7aQucliTyBAna8LaHmtX7dXQLMAO60JoJjU+bwXWLxTWAdWAU17BTKbBfQ8v8aiU+8FaBbgTzLvBYTs2WsWMDydPidQswA3r84HyO2Mm2EouoQdNYMuH2BtLWd7UOTJyepIW8zFINmWgLk5BTQE2QgAEz+ZuvCgBFhrxIsnsNaYmB4BdRxCUGPHC2v8svMAquVh6fQyULiRAMgZpgRk4xGEP8oA5EgA5EgA5IRYBsojZIwyADkSADkSADkxWsHyCAmjDECOBECOBEBOCuNgeYQWUQYgRwIgRwIgJ4ctYfIIYRn4fSoDkCMBkCMBkJPtq2El5BHsWH8/ygDkSADkSADkdMEDuGDzCF5HzSoDkCMBkCMBkMPgAVzk7hHGOl5eGYAcCYAcCYCcqH+epKOMfV6vJ0FjpgxAjgRAjgRAzn8v34lkepJJXAAAAABJRU5ErkJggg==" alt="뮤직">
-                <span>Music🎵</span>
-            </div>
+            <img src="/assets/one-d559c96b.png" alt />
         </div>
+        <header id="header">
+            <h1>Welcome to the YUNAWORLD</h1>
+            <div class="time">2023-04-24 09:37 15s</div>
+        </header>
 
-        <!-- 뮤직 플레이어 -->
-        <div class="music__wrap">
-            <div class="music__inner">
-                <div class="music__header">
-                    <span class="left"></span>
-                    <h2>For me Player 🎧</h2>
-                    <span class="right"></span>
+        <main id="contents">
+            <div class="icon___box">
+                <div class="icon1">
+                    <img src="/assets/folder-4c46d682.png" alt="뮤직" />
+                    <span>Music</span>
                 </div>
-                <div class="music__contents">
-                    <div class="music__view">
-                        <div class="image">
-                            <img src="/assets/music__view001-e115df33.png" alt="">
-                        </div>
+                <div class="icon2">
+                    <img src="/assets/folder-4c46d682.png" alt="뮤직" />
+                    <span>Music</span>
+                </div>
+                <div class="icon3">
+                    <img src="/assets/folder-4c46d682.png" alt="뮤직" />
+                    <span>Music</span>
+                </div>
+                <div class="icon4">
+                    <img src="/assets/folder-4c46d682.png" alt="뮤직" />
+                    <span>Music</span>
+                </div>
+            </div>
+
+            <!-- 뮤직 플레이어 -->
+            <div class="music__wrap">
+                <div class="music__inner">
+                    <div class="music__header">
+                        <span class="left"></span>
+                        <h2>For me Player 🎧</h2>
+                        <span class="right"></span>
                     </div>
-                    <div class="music__control">
-                        <div class="title">
-                            <h3>Wish You Were Gay</h3>
-                            <p>Billie Eilish</p>
-                        </div>
-                        <div class="progress">
-                            <div class="bar">
-                                <audio id="main-audio" src="audio/music_audio01.mp3"></audio>
-                            </div>
-                            <div class="timer">
-                                <span class="current">0:00</span>
-                                <span class="duration">2:50</span>
+                    <div class="music__contents">
+                        <div class="music__view">
+                            <div class="image">
+                                <img src="/assets/music__view001-e115df33.png" alt="" />
                             </div>
                         </div>
-                        <div class="control">
-                            <span>
-                                <i class="repeat" id="control-repeat" title="전체 반복"></i>
-                                <!-- <i class="repeat_one" id="control-repeat" title="한곡 반복"></i>
+                        <div class="music__control">
+                            <div class="title">
+                                <h3>Wish You Were Gay</h3>
+                                <p>Billie Eilish</p>
+                            </div>
+                            <div class="progress">
+                                <div class="bar">
+                                    <audio
+                                        id="main-audio"
+                                        src="audio/music_audio01.mp3"
+                                    ></audio>
+                                </div>
+                                <div class="timer">
+                                    <span class="current">0:00</span>
+                                    <span class="duration">2:50</span>
+                                </div>
+                            </div>
+                            <div class="control">
+                                <span>
+                                    <i
+                                        class="repeat"
+                                        id="control-repeat"
+                                        title="전체 반복"
+                                    ></i>
+                                    <!-- <i class="repeat_one" id="control-repeat" title="한곡 반복"></i>
                                 <i class="shuffle" id="control-repeat" title="랜덤 반복"></i> -->
-                            </span>
-                            <span>
-                                <i class="prev" id="control-prev" title="이전곡 재생"></i>
-                            </span>
-                            <span>
-                                <i class="play" id="control-play" title="재생"></i>
-                            </span>
-                            <span>
-                                <i class="next" id="control-next" title="다음곡 재생"></i>
-                            </span>
-                            <span>
-                                <i class="list" id="control-list" title="재생목록"></i>
-                            </span>
+                                </span>
+                                <span>
+                                    <i
+                                        class="prev"
+                                        id="control-prev"
+                                        title="이전곡 재생"
+                                    ></i>
+                                </span>
+                                <span>
+                                    <i
+                                        class="play"
+                                        id="control-play"
+                                        title="재생"
+                                    ></i>
+                                </span>
+                                <span>
+                                    <i
+                                        class="next"
+                                        id="control-next"
+                                        title="다음곡 재생"
+                                    ></i>
+                                </span>
+                                <span>
+                                    <i
+                                        class="list"
+                                        id="control-list"
+                                        title="재생목록"
+                                    ></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
                         <div class="music__list">
                             <h3>다음 항목<a href="#" class="close"></a></h3>
                             <ul>
@@ -105,24 +130,35 @@
                                 </li> -->
                             </ul>
                         </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- 뮤플 끝 -->
+            <!-- 뮤플 끝 -->
 
-        <!-- 테트리스 -->
-        <!-- 테트리스 -->
-    </main>
+            <!-- 테트리스 -->
+            <div class="tetris__wrap">
+                <div class="tetris__start"></div>
+                <div class="tetris__text"></div>
+                <div class="tetris__score"></div>
+                <div class="tetris__play">
+                    <div class="view">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 테트리스 끗-->
+        </main>
 
-    <footer id="footer">
-        <div class="info">현재 윈도우를 사용하고 있으며, 화면 크기는 1920 X 760 입니다.</div>
-    </footer>
+        <footer id="footer">
+            <div class="info">
+                현재 윈도우를 사용하고 있으며, 화면 크기는 1920 X 760 입니다.
+            </div>
+        </footer>
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-     
-
-</body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+        
+        <script></script>
+    </body>
 </html>
